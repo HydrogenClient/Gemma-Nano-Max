@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>🚀 Gemma-Nano-Max Portal</h1>
+    <input type="text" id="uid" placeholder="Enter Username">
+    <button onclick="generateKey()">Generate API Key</button>
+    <div id="result" style="margin-top:20px; font-weight:bold; color:green;"></div>
+
+    <script>
+        async function generateKey() {
+            const uid = document.getElementById('uid').value;
+            const res = await fetch('https://CooLLaMACEO-Gemma-Nano-Max-API.hf.space/generate-key?user_id=' + uid, {
+                method: 'POST'
+            });
+            const data = await res.json();
+            document.getElementById('result').innerText = "Your Key: " + data.api_key;
+        }
+    </script>
+</body>
+</html>
